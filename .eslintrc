@@ -1,0 +1,42 @@
+{
+  "extends": ["airbnb", "react-app"],
+  "parser": "babel-eslint",
+  "plugins": ["react", "import", "react-hooks"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "indent": ["error", 4],
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["error", 4],
+    "no-undef": "off",
+    "max-depth": ["error", 4],
+    "max-len": [
+      "error",
+      {
+        "code": 125,
+        "tabWidth": 4,
+        "ignoreComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "implicit-arrow-linebreak": "off",
+    "camelcase": "off",
+    "object-curly-newline": ["error", {
+      "ObjectPattern": { "multiline": true, "minProperties": 5 },
+      "ImportDeclaration": { "multiline": true, "minProperties": 5 },
+      "ExportDeclaration": { "multiline": true, "minProperties": 5 }
+    }],
+    "react/jsx-props-no-spreading": ["error", {
+      "custom": "ignore"
+    }],
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off"
+  }
+}

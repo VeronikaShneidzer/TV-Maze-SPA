@@ -1,0 +1,20 @@
+# IDE files
+.settings
+.project
+.classpath
+.idea
+*.iml
+.pmd
+.externalToolBuilders/
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+# bundle files
+dist
