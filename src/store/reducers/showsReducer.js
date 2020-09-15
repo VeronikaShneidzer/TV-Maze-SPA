@@ -10,7 +10,16 @@ const showsReducer = (state = initialState, action) => {
         return {
             ...state,
             shows: action.payload.shows,
-            isLoading: false,
+        };
+    case SHOWS_ACTION_TYPES.SHOW_RECEIVED:
+        return {
+            ...state,
+            show: action.payload.show,
+        };
+    case SHOWS_ACTION_TYPES.SHOW_EPISODES_RECEIVED:
+        return {
+            ...state,
+            episodes: action.payload.episodes,
         };
     default:
         return state;

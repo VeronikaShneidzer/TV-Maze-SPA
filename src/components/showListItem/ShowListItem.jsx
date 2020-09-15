@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 import HexagoneGrid from '../layouts/hexagoneGrid/HexagoneGrid';
 
-import styles from './Show.styles.css';
+import styles from './ShowListItem.styles.css';
 
 const propTypes = {
     show: PropTypes.shape({
@@ -17,12 +17,12 @@ const propTypes = {
     }).isRequired,
 };
 
-function Show(props) {
+function ShowListItem(props) {
     const { show } = props;
     const history = useHistory();
 
     const onClickShow = () => {
-        history.push(`/film/${show.id}`);
+        history.push(`/shows/${show.id}`);
     };
 
     return (
@@ -34,7 +34,7 @@ function Show(props) {
     );
 }
 
-Show.propTypes = propTypes;
-Show.displayName = 'Show';
+ShowListItem.propTypes = propTypes;
+ShowListItem.displayName = 'ShowListItem';
 
-export default Show;
+export default ShowListItem;

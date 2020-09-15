@@ -3,38 +3,38 @@ import { lazy } from 'react';
 import { ROUTE_PATHS } from '../constants/RouterConstants';
 
 const Shows = lazy(() => import('./shows/Shows'));
+const Show = lazy(() => import('./show/Show'));
 const NotFound = lazy(() => import('./notFound/NotFound'));
-const Empty = lazy(() => import('./empty/Empty'));
 
 const getRoutes = () => (
     [
         {
-            exact: false,
+            exact: true,
+            path: ROUTE_PATHS.EMPTY,
+            component: Shows,
+        },
+        {
+            exact: true,
+            path: ROUTE_PATHS.INDEX,
+            component: Shows,
+        },
+        {
+            exact: true,
             path: ROUTE_PATHS.SHOWS,
             component: Shows,
         },
         {
             exact: false,
             path: ROUTE_PATHS.SHOW,
-            component: Shows,
+            component: Show,
+        },
+        {
+            exact: false,
+            path: '*',
+            component: NotFound,
         },
     ]
 );
 
-const notFoundRoute = {
-    exact: false,
-    path: '*',
-    component: NotFound,
-};
-
-const emptyRoute = {
-    exact: false,
-    path: '*',
-    component: Empty,
-};
-
-export {
-    getRoutes,
-    notFoundRoute,
-    emptyRoute,
-};
+// eslint-disable-next-line import/prefer-default-export
+export { getRoutes };
