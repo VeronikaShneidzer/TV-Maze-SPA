@@ -11,6 +11,8 @@ const propTypes = {
         rating: PropTypes.string,
         genres: PropTypes.arrayOf,
         website: PropTypes.string,
+        season: PropTypes.string,
+        number: PropTypes.string,
         image: PropTypes.string,
         title: PropTypes.string,
         summary: PropTypes.string,
@@ -28,8 +30,26 @@ function HexagonePage(props) {
         <div className={styles.container}>
             <div className={styles.hexInfo}>
                 <h1>{data.name}</h1>
-                <p>{`Rating:  ${data.rating}`}</p>
-                <p>{!isEmpty(data.genres) ? `Genres: ${data.genres.join(', ')}` : ''}</p>
+                {
+                    data.rating && (
+                        <p>{`Rating:  ${data.rating}`}</p>
+                    )
+                }
+                {
+                    !isEmpty(data.genres) && (
+                        <p>{`Genres: ${data.genres.join(', ')}`}</p>
+                    )
+                }
+                {
+                    data.season && (
+                        <p>{`Season:  ${data.season}`}</p>
+                    )
+                }
+                {
+                    data.number && (
+                        <p>{`Episode:  ${data.number}`}</p>
+                    )
+                }
                 {/* eslint-disable-next-line react/no-danger */}
                 <p className={styles.summary} dangerouslySetInnerHTML={{ __html: data.summary }} />
             </div>

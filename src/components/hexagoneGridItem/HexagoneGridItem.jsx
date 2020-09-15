@@ -14,14 +14,15 @@ const propTypes = {
         }).isRequired,
         name: PropTypes.string.isRequired,
     }).isRequired,
+    url: PropTypes.string.isRequired,
 };
 
 function HexagoneGridItem(props) {
-    const { data } = props;
+    const { data, url } = props;
     const history = useHistory();
 
     const onClickShow = () => {
-        history.push(`/shows/${data.id}`);
+        history.push(`${url}/${data.id}`);
     };
 
     return (
