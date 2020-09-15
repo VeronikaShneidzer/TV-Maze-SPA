@@ -13,6 +13,11 @@ const getRoutes = () => (
             path: ROUTE_PATHS.SHOWS,
             component: Shows,
         },
+        {
+            exact: false,
+            path: ROUTE_PATHS.SHOW,
+            component: Shows,
+        },
     ]
 );
 

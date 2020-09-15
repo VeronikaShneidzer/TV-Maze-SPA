@@ -2,7 +2,7 @@ const BASE_PATH = '/';
 
 const ROUTE_PATHS = Object.freeze({
     SHOWS: '/shows/',
-    // SHOW: '/shows/:id',
+    SHOW: '/shows/:id',
 });
 
 export {
