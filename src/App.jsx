@@ -1,29 +1,19 @@
-import React, { useEffect } from 'react';
-import { shallowEqual, useSelector, useDispatch } from 'react-redux';
+import React, { Suspense } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-import { SHOWS_ACTION_TYPES } from './constants/ActionTypesConstants';
+import RouterSwitch from './components/routerSwitch/RouterSwitch';
 
-import './App.css';
+import { BASE_PATH } from './constants/RouterConstants';
 
 function App() {
-    const dispatch = useDispatch();
-
-    const { shows } = useSelector((state) => ({
-        shows: state.showsReducer.shows,
-    }), shallowEqual);
-
-    useEffect(() => {
-        dispatch({ type: SHOWS_ACTION_TYPES.GET_SHOWS });
-    }, [dispatch]);
-
-    useEffect(() => {
-
-    }, [shows]);
-
     return (
-        <div className="App">
-            {shows}
-        </div>
+        <>
+            <BrowserRouter basename={BASE_PATH}>
+                <Suspense fallback={<div>loading...</div>}>
+                    <RouterSwitch />
+                </Suspense>
+            </BrowserRouter>
+        </>
     );
 }
 
