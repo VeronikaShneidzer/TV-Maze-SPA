@@ -3,6 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 
+import HexagoneGrid from '../layouts/hexagoneGrid/HexagoneGrid';
+
 import styles from './Show.styles.css';
 
 const propTypes = {
@@ -19,19 +21,16 @@ function Show(props) {
     const { show } = props;
     const history = useHistory();
 
-    const onClickMovie = () => {
+    const onClickShow = () => {
         history.push(`/film/${show.id}`);
     };
 
     return (
-        <div className={styles.hex}>
-            <div className={styles.hexIn}>
-                <span className={styles.hexLink} onClick={onClickMovie}>
-                    <div className={styles.img} style={{ backgroundImage: `url(${show.image.medium})` }} />
-                    <h1 className={styles.title}>{ show.name }</h1>
-                </span>
-            </div>
-        </div>
+        <HexagoneGrid
+            onClick={onClickShow}
+            title={show.name}
+            image={show.image.medium}
+        />
     );
 }
 

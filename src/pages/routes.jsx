@@ -2,9 +2,9 @@ import { lazy } from 'react';
 
 import { ROUTE_PATHS } from '../constants/RouterConstants';
 
-const Shows = lazy(() => import('./shows/shows'));
-const NotFound = lazy(() => import('./notFound/notFound'));
-const Empty = lazy(() => import('./empty/empty'));
+const Shows = lazy(() => import('./shows/Shows'));
+const NotFound = lazy(() => import('./notFound/NotFound'));
+const Empty = lazy(() => import('./empty/Empty'));
 
 const getRoutes = () => (
     [

@@ -8,7 +8,7 @@ import { SHOWS_ACTION_TYPES } from '../../constants/ActionTypesConstants';
 
 import Show from '../../components/show/Show';
 
-import styles from './shows.styles.css';
+import styles from './Shows.styles.css';
 
 function Shows() {
     const dispatch = useDispatch();

@@ -11,9 +11,9 @@ npm run start
 We would like to see a SPA with two pages (routes): a details page for the TV show "Powerpuff Girls", and an episode detail page with information about specific episodes. Note that since this is an SPA, there should be no full page refresh when navigating between those routes.
 
 The TV show page should at least display the following information (you're free to add more):
-* Show title
-* Show Description
-* Show cover image
+* HexagoneGrid title
+* HexagoneGrid Description
+* HexagoneGrid cover image
 * Episode list. Every episode in the list should link to a details page for that specific episode
 
 The episode detail page should contain at least:
