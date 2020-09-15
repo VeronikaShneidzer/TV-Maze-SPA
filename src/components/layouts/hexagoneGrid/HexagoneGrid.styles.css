@@ -7,11 +7,13 @@
     will-change: transform;
     transition: all 0.5s;
 }
+
 .hex::after{
     content:'';
     display:block;
     padding-bottom: 86.602%;
 }
+
 .hexIn{
     position: absolute;
     width:96%;
@@ -25,11 +27,13 @@
     transform: rotate3d(0,0,1,-60deg) skewY(30deg);
     transition: all 0.5s;
 }
+
 .hexIn * {
     position: absolute;
     visibility: visible;
     outline:1px solid transparent;
 }
+
 .hexLink {
     display:block;
     width: 100%;
@@ -37,6 +41,7 @@
     text-align: center;
     color: #fff;
     overflow: hidden;
+    cursor: pointer;
     -webkit-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
     -ms-transform: skewY(-30deg) rotate3d(0,0,1,60deg);
     transform: skewY(-30deg) rotate3d(0,0,1,60deg);
