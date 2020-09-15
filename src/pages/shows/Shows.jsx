@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { isEmpty } from 'lodash';
 
 import { SHOWS_ACTION_TYPES } from '../../constants/ActionTypesConstants';
+import { SHOWS_URL_PART } from '../../constants/APIConstants';
 
 import HexagoneGridItem from '../../components/hexagoneGridItem/HexagoneGridItem';
 
@@ -27,7 +28,11 @@ function Shows() {
             {
                 !isEmpty(shows) && (
                     shows.map((show) => (
-                        <HexagoneGridItem data={show} key={`${show.title} key ${show.id}`} />
+                        <HexagoneGridItem
+                            data={show}
+                            url={SHOWS_URL_PART}
+                            key={`${show.title} key ${show.id}`}
+                        />
                     ))
                 )
             }

@@ -5,6 +5,7 @@ const ROUTE_PATHS = Object.freeze({
     INDEX: '/index.html',
     SHOWS: '/shows',
     SHOW: '/shows/:id',
+    EPISODE: '/episodes/:id',
 });
 
 export {

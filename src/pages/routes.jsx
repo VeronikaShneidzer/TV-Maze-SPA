@@ -4,6 +4,7 @@ import { ROUTE_PATHS } from '../constants/RouterConstants';
 
 const Shows = lazy(() => import('./shows/Shows'));
 const Show = lazy(() => import('./show/Show'));
+const Episode = lazy(() => import('./episode/Episode'));
 const NotFound = lazy(() => import('./notFound/NotFound'));
 
 const getRoutes = () => (
@@ -27,6 +28,11 @@ const getRoutes = () => (
             exact: false,
             path: ROUTE_PATHS.SHOW,
             component: Show,
+        },
+        {
+            exact: false,
+            path: ROUTE_PATHS.EPISODE,
+            component: Episode,
         },
         {
             exact: false,

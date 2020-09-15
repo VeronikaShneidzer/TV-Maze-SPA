@@ -7,5 +7,12 @@ const SHOWS_ACTION_TYPES = Object.freeze({
     SHOW_EPISODES_RECEIVED: 'show episodes received',
 });
 
-// eslint-disable-next-line import/prefer-default-export
-export { SHOWS_ACTION_TYPES };
+const EPISODES_ACTION_TYPES = Object.freeze({
+    GET_EPISODE: 'get show',
+    EPISODE_RECEIVED: 'show received',
+});
+
+export {
+    SHOWS_ACTION_TYPES,
+    EPISODES_ACTION_TYPES,
+};

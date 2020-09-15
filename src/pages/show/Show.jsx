@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash';
 
 import { SHOWS_ACTION_TYPES } from '../../constants/ActionTypesConstants';
+import { EPISODES_URL_PART } from '../../constants/APIConstants';
 
 import HexagonePage from '../../components/layouts/hexagonePage/HexagonePage';
 import HexagoneGridItem from '../../components/hexagoneGridItem/HexagoneGridItem';
@@ -70,7 +71,11 @@ function Show(props) {
                 {
                     !isEmpty(preparedEpisodesData) && (
                         preparedEpisodesData.map((episode) => (
-                            <HexagoneGridItem data={episode} key={`${episode.name} key ${episode.id}`} />
+                            <HexagoneGridItem
+                                data={episode}
+                                url={EPISODES_URL_PART}
+                                key={`${episode.name} key ${episode.id}`}
+                            />
                         ))
                     )
                 }
