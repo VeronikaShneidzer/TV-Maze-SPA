@@ -1,5 +1,11 @@
 # TV Maze Single Page Application
 
+To run the application do the follow
+```
+npm install
+npm run start
+```
+
 ## Goal
 
 We would like to see a SPA with two pages (routes): a details page for the TV show "Powerpuff Girls", and an episode detail page with information about specific episodes. Note that since this is an SPA, there should be no full page refresh when navigating between those routes.
