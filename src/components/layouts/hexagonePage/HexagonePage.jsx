@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { isEmpty } from 'lodash';
-import styles from './HexagonePage.css';
+
+import styles from './HexagonePage.styles.css';
 
 const propTypes = {
     data: PropTypes.shape({
@@ -14,9 +15,6 @@ const propTypes = {
         title: PropTypes.string,
         summary: PropTypes.string,
     }).isRequired,
-};
-
-const defaultProps = {
 };
 
 function HexagonePage(props) {
@@ -57,7 +55,6 @@ function HexagonePage(props) {
 }
 
 HexagonePage.propTypes = propTypes;
-HexagonePage.defaultProps = defaultProps;
 HexagonePage.displayName = 'HexagonePage';
 
 export default HexagonePage;

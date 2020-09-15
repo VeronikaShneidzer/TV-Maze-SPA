@@ -53,7 +53,7 @@ function* getShowWatcher() {
 }
 
 function* getShowEpisodesWatcher() {
-    yield takeLatest(SHOWS_ACTION_TYPES.GET_EPISODES_SHOW, getShowEpisodesSaga);
+    yield takeLatest(SHOWS_ACTION_TYPES.GET_SHOW_EPISODES, getShowEpisodesSaga);
 }
 
 const SHOWS_SAGAS = [

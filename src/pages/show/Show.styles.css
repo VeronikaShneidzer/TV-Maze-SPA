@@ -1,0 +1,43 @@
+.hexGrid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    font-family: sans-serif;
+    list-style-type: none;
+    padding: 0;
+}
+
+@media (min-width:1201px) {
+    .hexGrid{
+        padding-bottom: 4.4%
+    }
+}
+
+@media (max-width: 1200px) and (min-width:901px) {
+    .hexGrid{
+        padding-bottom: 5.5%;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 900px) and (min-width:601px) {
+    .hexGrid{
+        padding-bottom: 7.4%;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hexGrid{
+        padding-bottom: 11.2%;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hexGrid {
+        font-size: 8px;
+    }
+}

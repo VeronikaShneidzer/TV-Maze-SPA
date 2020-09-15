@@ -1,40 +1,39 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
+import { isEmpty } from 'lodash';
 
 import HexagoneGrid from '../layouts/hexagoneGrid/HexagoneGrid';
 
-import styles from './ShowListItem.styles.css';
-
 const propTypes = {
-    show: PropTypes.shape({
+    data: PropTypes.shape({
         id: PropTypes.number.isRequired,
         image: PropTypes.shape({
-            medium: PropTypes.string.isRequired,
+            medium: PropTypes.string,
+            original: PropTypes.string,
         }).isRequired,
         name: PropTypes.string.isRequired,
     }).isRequired,
 };
 
-function ShowListItem(props) {
-    const { show } = props;
+function HexagoneGridItem(props) {
+    const { data } = props;
     const history = useHistory();
 
     const onClickShow = () => {
-        history.push(`/shows/${show.id}`);
+        history.push(`/shows/${data.id}`);
     };
 
     return (
         <HexagoneGrid
             onClick={onClickShow}
-            title={show.name}
-            image={show.image.medium}
+            title={data.name}
+            image={isEmpty(data.image) ? '' : (data.image.medium || data.image.original)}
         />
     );
 }
 
-ShowListItem.propTypes = propTypes;
-ShowListItem.displayName = 'ShowListItem';
+HexagoneGridItem.propTypes = propTypes;
+HexagoneGridItem.displayName = 'HexagoneGridItem';
 
-export default ShowListItem;
+export default HexagoneGridItem;

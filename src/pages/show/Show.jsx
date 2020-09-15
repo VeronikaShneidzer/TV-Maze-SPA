@@ -1,4 +1,3 @@
-/* eslint-disable no-console,no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -7,6 +6,9 @@ import { isEmpty } from 'lodash';
 import { SHOWS_ACTION_TYPES } from '../../constants/ActionTypesConstants';
 
 import HexagonePage from '../../components/layouts/hexagonePage/HexagonePage';
+import HexagoneGridItem from '../../components/hexagoneGridItem/HexagoneGridItem';
+
+import styles from '../shows/Shows.styles.css';
 
 const propTypes = {
     match: PropTypes.shape({
@@ -16,14 +18,12 @@ const propTypes = {
     }).isRequired,
 };
 
-const defaultProps = {
-};
-
 function Show(props) {
     const { match } = props;
     const dispatch = useDispatch();
 
-    const [preparedData, setPreparedData] = useState([]);
+    const [preparedShowsData, setPreparedShowsData] = useState([]);
+    const [preparedEpisodesData, setPreparedEpisodesData] = useState([]);
 
     const { show, episodes } = useSelector((state) => ({
         show: state.showsReducer.show,
@@ -31,8 +31,8 @@ function Show(props) {
     }), shallowEqual);
 
     useEffect(() => {
-        if (show) {
-            setPreparedData({
+        if (!isEmpty(show)) {
+            setPreparedShowsData({
                 name: show.name,
                 rating: show.rating.average,
                 genres: show.genres,
@@ -44,6 +44,16 @@ function Show(props) {
     }, [show]);
 
     useEffect(() => {
+        if (!isEmpty(episodes)) {
+            setPreparedEpisodesData(episodes.map((episode) => ({
+                id: episode.id,
+                image: episode.image,
+                name: `${episode.season}x${episode.number} ${episode.name}`,
+            })));
+        }
+    }, [episodes]);
+
+    useEffect(() => {
         const { id } = match.params;
         dispatch({ type: SHOWS_ACTION_TYPES.GET_SHOW, payload: { id } });
         dispatch({ type: SHOWS_ACTION_TYPES.GET_SHOW_EPISODES, payload: { id } });
@@ -52,16 +62,24 @@ function Show(props) {
     return (
         <>
             {
-                !isEmpty(preparedData) && (
-                    <HexagonePage data={preparedData} />
+                !isEmpty(preparedShowsData) && (
+                    <HexagonePage data={preparedShowsData} />
                 )
             }
+            <ul className={styles.hexGrid}>
+                {
+                    !isEmpty(preparedEpisodesData) && (
+                        preparedEpisodesData.map((episode) => (
+                            <HexagoneGridItem data={episode} key={`${episode.name} key ${episode.id}`} />
+                        ))
+                    )
+                }
+            </ul>
         </>
     );
 }
 
 Show.propTypes = propTypes;
-Show.defaultProps = defaultProps;
 Show.displayName = 'Show';
 
 export default Show;
