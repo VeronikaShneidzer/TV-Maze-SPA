@@ -1,28 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { shallowEqual, useSelector, useDispatch } from 'react-redux';
+
+import { SHOWS_ACTION_TYPES } from './constants/ActionTypesConstants';
 
 import './App.css';
 
 function App() {
+    const dispatch = useDispatch();
+
+    const { shows } = useSelector((state) => ({
+        shows: state.showsReducer.shows,
+    }), shallowEqual);
+
+    useEffect(() => {
+        dispatch({ type: SHOWS_ACTION_TYPES.GET_SHOWS });
+    }, [dispatch]);
+
+    useEffect(() => {
+
+    }, [shows]);
+
     return (
         <div className="App">
-            <header className="App-header">
-                {/* <img src={logo} className="App-logo" alt="logo" /> */}
-                <p>
-                    Edit
-                    {' '}
-                    <code>src/App.js</code>
-                    {' '}
-                    and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
+            {shows}
         </div>
     );
 }
