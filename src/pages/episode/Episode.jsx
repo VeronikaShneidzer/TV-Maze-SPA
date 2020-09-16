@@ -31,7 +31,7 @@ function Episode(props) {
                 name: episode.name,
                 season: episode.season,
                 number: episode.number,
-                image: episode.image.original,
+                image: isEmpty(episode.image) ? '' : (episode.image.medium || episode.image.original),
                 summary: episode.summary,
             });
         }

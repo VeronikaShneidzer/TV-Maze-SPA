@@ -50,8 +50,11 @@ function HexagonePage(props) {
                         <p>{`Episode:  ${data.number}`}</p>
                     )
                 }
-                {/* eslint-disable-next-line react/no-danger */}
-                <p className={styles.summary} dangerouslySetInnerHTML={{ __html: data.summary }} />
+                <p
+                    className={styles.summary}
+                    /* eslint-disable-next-line react/no-danger */
+                    dangerouslySetInnerHTML={{ __html: data.summary ? data.summary : 'The description will be added soon' }}
+                />
             </div>
             <div className={styles.hexGrid}>
                 <div className={styles.hex}>

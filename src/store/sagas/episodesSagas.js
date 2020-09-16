@@ -8,7 +8,7 @@ import { getEpisode as getEpisodeCall } from '../../api/episodesAPI';
 
 import { EPISODES_ACTION_TYPES } from '../../constants/ActionTypesConstants';
 
-function* getEpisodeSaga(action) {
+export function* getEpisodeSaga(action) {
     const { id } = action.payload;
 
     const data = yield call(getEpisodeCall, id);

@@ -11,7 +11,7 @@ import {
 } from '../../api/showsAPI';
 import { SHOWS_ACTION_TYPES } from '../../constants/ActionTypesConstants';
 
-function* getShowsSaga() {
+export function* getShowsSaga() {
     const data = yield call(getShowsCall);
 
     yield put({
@@ -22,7 +22,7 @@ function* getShowsSaga() {
     });
 }
 
-function* getShowSaga(action) {
+export function* getShowSaga(action) {
     const { id } = action.payload;
 
     const data = yield call(getShowCall, id);
@@ -33,7 +33,7 @@ function* getShowSaga(action) {
     });
 }
 
-function* getShowEpisodesSaga(action) {
+export function* getShowEpisodesSaga(action) {
     const { id } = action.payload;
 
     const data = yield call(getShowEpisodesCall, id);
